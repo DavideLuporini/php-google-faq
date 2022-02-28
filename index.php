@@ -23,6 +23,8 @@ $db = [
         'title' => 'Stabilire il paese associato al tuo account.',
         'text' => [          
             'Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell\'ultimo anno.',
+            'I viaggi frequenti solitamente non influiscono sul paese associato al tuo account. Se ti trasferisci in un altro paese, potrebbe occorrere circa un anno per aggiornare l\'associazione del paese.',
+            'Se il paese associato al tuo account non corrisponde al tuo paese di residenza, il motivo potrebbe essere la differenza tra il paese in cui lavori e il paese in cui risiedi, l\'installazione di una rete privata virtuale (VPN) per mascherare il tuo indirizzo IP oppure la residenza vicino a un confine territoriale. Contattaci se ritieni che il paese associato al tuo account sia sbagliato.',
             
         ]
         ],
@@ -46,21 +48,76 @@ $db = [
 <!DOCTYPE html>
 <html lang="en">
 
-<style>
-    .container {
-        width: 1000px;
-        margin: 0 auto;
-    }
-</style>
-
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
     <title>Google FAQ</title>
 </head>
+    <style>
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        header{
+            height: 100px;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            border-bottom: 1px solid black;
+        }
+        header img{
+            width: 100px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        header ul li {
+            list-style: none;
+            display: inline-block;
+            margin-left: 20px;
+        }
+        header ul li span{
+            padding: 15px 20px 15px 20px;
+        }
+        li:hover span{
+            border-bottom: 4px blue solid;
+        }
+        header ul li:hover {
+            color: blue;
+        }
+        body{
+            font-family: Roboto, arial, sans-serif;
+            padding-top: 200px;
+        }
+        h3{
+            font-size: 1.5rem;
+            color: rgb(60,64,67);
+        }
+        p{
+            color:rgb(88,81,80);
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+    </style>
 
 <body>
+    <header>
+    <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" alt="logo-google    ">
+    <ul>
+        <li><span>Introduzione</span></li>
+        <li><span>Norme sulla privacy</span></li>
+        <li><span>Termini di servizio</span></li>
+        <li><span>Tecnologie</span></li>
+        <li><span>Domande frequenti</span></li>
+    </ul>
+    </header>
     <section class="container">
         <?php foreach ($db as $type_of_text) { ?>
             <h3><?php echo $type_of_text['title'] ?></h3>
@@ -71,6 +128,9 @@ $db = [
             <?php } ?>
         <?php } ?>
     </section>
+    <footer>
+
+    </footer>
 </body>
 
 </html>
