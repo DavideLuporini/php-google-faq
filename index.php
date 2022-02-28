@@ -43,6 +43,8 @@ $db = [
 
 ];
 
+$links =['Introduzione','Norme sulla privacy','Termini di servizio','Tecnologie','Domande frequenti']
+
 ?>
 
 <!DOCTYPE html>
@@ -111,11 +113,9 @@ $db = [
     <header>
     <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" alt="logo-google    ">
     <ul>
-        <li><span>Introduzione</span></li>
-        <li><span>Norme sulla privacy</span></li>
-        <li><span>Termini di servizio</span></li>
-        <li><span>Tecnologie</span></li>
-        <li><span>Domande frequenti</span></li>
+        <?php foreach ($links as $link) { ?>
+        <li><span><?= $link ?></span></li>
+        <?php } ?>
     </ul>
     </header>
     <section class="container">
