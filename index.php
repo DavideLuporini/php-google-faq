@@ -21,36 +21,36 @@ $db = [
     ],
     [
         'title' => 'Stabilire il paese associato al tuo account.',
-        'text' => [          
+        'text' => [
             'Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell\'ultimo anno.',
             'I viaggi frequenti solitamente non influiscono sul paese associato al tuo account. Se ti trasferisci in un altro paese, potrebbe occorrere circa un anno per aggiornare l\'associazione del paese.',
             'Se il paese associato al tuo account non corrisponde al tuo paese di residenza, il motivo potrebbe essere la differenza tra il paese in cui lavori e il paese in cui risiedi, l\'installazione di una rete privata virtuale (VPN) per mascherare il tuo indirizzo IP oppure la residenza vicino a un confine territoriale. Contattaci se ritieni che il paese associato al tuo account sia sbagliato.',
-            
+
         ]
-        ],
+    ],
     [
         'title' => 'Come faccio a rimuovere informazioni su di me dai risultati di ricerca di Google?',
-        'text' => [          
+        'text' => [
             'I risultati di ricerca di Google rispecchiano i contenuti pubblicamente disponibili sul Web. I motori di ricerca non possono rimuovere i contenuti direttamente dai siti web, quindi rimuovere risultati di ricerca da Google non consente di rimuovere i contenuti dal Web. Se desideri rimuovere qualcosa dal Web, devi contattare il webmaster del sito su cui sono pubblicati i contenuti e chiedergli di apportare una modifica. Inoltre, se, ai sensi delle leggi europee per la protezione dei dati, desideri richiedere la rimozione di determinate informazioni su di te visualizzate nei risultati di ricerca di Google, fai clic qui. Una volta che i contenuti saranno stati rimossi e che Google avrà rilevato l\'aggiornamento, le informazioni non verranno più visualizzate nei risultati di ricerca di Google. In caso di una richiesta di rimozione urgente, è inoltre possibile visitare la nostra pagina di assistenza per avere ulteriori informazioni.'
         ]
-        ],
+    ],
     [
         'title' => 'Quando faccio clic sui risultati della Ricerca Google, le mie chiavi di ricerca vengono inviate ai siti web?',
-        'text' => [          
+        'text' => [
             'In alcuni casi sì. Quando fai clic su un risultato della Ricerca Google, il tuo browser web potrebbe reindirizzare alla pagina web di destinazione anche l\'indirizzo Internet, o URL, della pagina dei risultati di ricerca sotto forma di URL referrer. Talvolta, l\'URL della pagina dei risultati di ricerca potrebbe contenere la query di ricerca che hai inserito. Se utilizzi la ricerca SSL (la funzione di ricerca criptata di Google), nella maggior parte dei casi i termini di ricerca non vengono inviati come parte dell\'URL negli URL referrer. Questo comportamento può fare eccezione, ad esempio se utilizzi alcuni browser meno diffusi. Ulteriori informazioni sulla ricerca SSL sono disponibili qui. Le query di ricerca o le informazioni contenute nell\'URL referrer potrebbero essere disponibili mediante Google Analytics o un\'API (Application Programming Interface). Inoltre, gli inserzionisti potrebbero ricevere informazioni relative all\' esatte parole chiave che hanno determinato il clic su un annuncio.'
         ]
-        ],
+    ],
 
 ];
 
-$links =['Introduzione','Norme sulla privacy','Termini di servizio','Tecnologie','Domande frequenti']
-
+$links_header = ['Introduzione', 'Norme sulla privacy', 'Termini di servizio', 'Tecnologie', 'Domande frequenti'];
+$links_footer = ['Google', 'Tutto su Google', 'Privacy', 'Termini'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-    
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,65 +58,112 @@ $links =['Introduzione','Norme sulla privacy','Termini di servizio','Tecnologie'
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Google FAQ</title>
 </head>
-    <style>
-        .container {
-            width: 1000px;
-            margin: 0 auto;
-        }
-        header{
-            height: 100px;
-            background-color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
-            border-bottom: 1px solid black;
-        }
-        header img{
-            width: 100px;
-            margin-top: 10px;
-            margin-left: 20px;
-        }
-        header ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 20px;
-        }
-        header ul li span{
-            padding: 15px 20px 15px 20px;
-        }
-        li:hover span{
-            border-bottom: 4px blue solid;
-        }
-        header ul li:hover {
-            color: blue;
-        }
-        body{
-            font-family: Roboto, arial, sans-serif;
-            padding-top: 200px;
-        }
-        h3{
-            font-size: 1.5rem;
-            color: rgb(60,64,67);
-        }
-        p{
-            color:rgb(88,81,80);
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-        }
-    </style>
+<style>
+    /* generals */
+    .container {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    body {
+        font-family: Roboto, arial, sans-serif;
+        padding: 0;
+        padding-top: 200px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* header */
+    header {
+        height: 100px;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        border-bottom: 1px solid black;
+    }
+
+    header img {
+        width: 100px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    /* links header */
+    ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    header ul li span {
+        padding: 15px 20px 15px 20px;
+    }
+
+    header li:hover span {
+        border-bottom: 4px blue solid;
+    }
+
+    header ul li:hover {
+        color: blue;
+    }
+
+    /* text */
+    h3 {
+        font-size: 1.5rem;
+        color: rgb(60, 64, 67);
+    }
+
+    p {
+        color: rgb(88, 81, 80);
+        margin-bottom: 25px;
+        font-size: 0.9rem;
+    }
+
+    /* footer */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(245, 245, 245);
+    }
+
+    footer ul {
+        padding: 0;
+        width: 75%;
+        display: inline-block;
+    }
+
+    footer ul li {
+        font-size: 0.7rem;
+        color: grey;
+    }
+
+    .fa-globe-europe {
+        color: blue;
+    }
+
+    select {
+        width: 200px;
+    }
+    .lenguage{
+        display: inline-block;
+    }
+</style>
 
 <body>
     <header>
-    <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" alt="logo-google    ">
-    <ul>
-        <?php foreach ($links as $link) { ?>
-        <li><span><?= $link ?></span></li>
-        <?php } ?>
-    </ul>
+        <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" alt="logo-google    ">
+        <ul>
+            <?php foreach ($links_header as $link) { ?>
+                <li><span><?= $link ?></span></li>
+            <?php } ?>
+        </ul>
     </header>
     <section class="container">
         <?php foreach ($db as $type_of_text) { ?>
@@ -129,7 +176,20 @@ $links =['Introduzione','Norme sulla privacy','Termini di servizio','Tecnologie'
         <?php } ?>
     </section>
     <footer>
-
+        <div class="container">
+            <ul>
+                <?php foreach ($links_footer as $link) { ?>
+                    <li><span><?= $link ?></span></li>
+                <?php } ?>
+            </ul>
+            <div class="lenguage">
+                <i class="fas fa-globe-europe"></i>
+                <select name="lang" id="lang">
+                    <option value="italian">italian</option>
+                    <option value="english">English</option>
+                </select>
+            </div>
+        </div>
     </footer>
 </body>
 
